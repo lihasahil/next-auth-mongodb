@@ -30,8 +30,8 @@ export const sendMail = async ({ email, emailType, userId }: sendMailProps) => {
       host: "smtp.ethereal.email",
       port: 587,
       auth: {
-        user: "valentin.brown64@ethereal.email",
-        pass: "XyfDAzB19JmMjyn512",
+        user: "krista99@ethereal.email",
+        pass: "jk9KYH7gX6fvxTxzFV",
       },
     });
 
