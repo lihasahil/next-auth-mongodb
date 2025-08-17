@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { connectDb } from "@/dbConfig/db-config";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
@@ -19,6 +20,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
 
@@ -28,20 +30,26 @@ export async function POST(request: NextRequest) {
       email,
       password: hashedPassword,
     });
+
     const savedUser = await newUser.save();
 
-    //send verification mail
-
+    // Send verification mail
     await sendMail({ email, emailType: "VERIFY", userId: savedUser._id });
 
     console.log(savedUser);
 
-    return NextResponse.json({
-      message: "User Registered Successfully",
-      success: true,
-      savedUser,
-    });
+    return NextResponse.json(
+      {
+        message: "User Registered Successfully",
+        success: true,
+        savedUser,
+      },
+      { status: 201 }
+    ); // optionally set status 201 for created
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }), { status: 500 };
+    return NextResponse.json(
+      { error: error.message },
+      { status: 500 } // fixed the syntax here
+    );
   }
 }
