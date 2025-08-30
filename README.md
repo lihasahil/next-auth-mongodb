@@ -110,6 +110,14 @@ yarn dev
 
 ---
 
+## Preview 
+
+<img width="991" height="911" alt="localhost_3000_login" src="https://github.com/user-attachments/assets/5d909242-c2b2-4126-9bee-30d910c4a076" />
+
+<img width="991" height="911" alt="localhost_3000_login (1)" src="https://github.com/user-attachments/assets/064e26e2-c673-47ac-b6db-a52bbb10525a" />
+
+---
+
 **Author:** Sahil Shrestha\
 **Date:** August 2025
 
